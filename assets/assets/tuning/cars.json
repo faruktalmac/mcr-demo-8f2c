@@ -1,0 +1,29 @@
+{
+  "_comment": "Car classes. mass in kg, radius in metres. frictionMultiplier scales the surface friction; curlResponse scales how sharply spin bends the path (the player has no control that asks for spin - see ADR-011 - but the engine keeps it). Radii doubled on the owner's instruction after two rounds of play-test feedback that the pieces read too small on a phone. Mass left alone on purpose: size and weight are separate balance levers.",
+  "cars": [
+    {
+      "id": "muscle",
+      "mass": 0.09,
+      "radius": 0.0994,
+      "restitution": 0.45,
+      "frictionMultiplier": 0.85,
+      "curlResponse": 0.7
+    },
+    {
+      "id": "racer",
+      "mass": 0.05,
+      "radius": 0.087,
+      "restitution": 0.55,
+      "frictionMultiplier": 0.95,
+      "curlResponse": 1.4
+    },
+    {
+      "id": "suv",
+      "mass": 0.075,
+      "radius": 0.1056,
+      "restitution": 0.35,
+      "frictionMultiplier": 1.25,
+      "curlResponse": 0.85
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "_comment": "The settle moment: how the game presents the instant a shot is decided. These numbers change nothing about where a car ends up - the simulation still runs on a fixed timestep (rule K2) and these only decide how fast real time is fed into it, and what is drawn once it stops. Measured 2026-08-28 over 26903 simulated shots: once a car is under 0.7 m/s and inside 1.4 target radii, it always takes 0.39 more seconds to stop, whatever the shot was. That constant is what slowMotionMaxSeconds guards. Firing on that pair of conditions rather than on the score means the drama happens while the outcome is still unknown, which is the whole point - it fires on about 37% of shots, the ones that are genuinely close. Retuned 2026-08-28 after the owner played it: the pause read as boring and the whole thing said \"get on with it\". A scoring shot used to cost 1.14 s more than a silent one; it now costs 0.57 s. The slow motion survived because that is where the tension is - it just runs at 0.55 instead of 0.42, so the 0.39 s beat plays over 0.71 s rather than 0.93 s. The dead wait afterwards took the bigger cut, 0.6 s down to 0.25 s: the score is still legible because it goes on reading off the car for another half second while the next car is already being lined up. sweepSeconds is how long the cars take to fade off the table when an end is scored (ADR-020). Long enough to read as the table being cleared, short enough that the next shot is not kept waiting behind it.",
+  "slowMotionSpeed": 0.7,
+  "slowMotionRadiusFactor": 1.4,
+  "slowMotionTimeScale": 0.55,
+  "slowMotionEaseSeconds": 0.06,
+  "slowMotionMaxSeconds": 0.7,
+  "settleHoldSeconds": 0.25,
+  "shakeSeconds": 0.3,
+  "shakeAmplitude": 2.4,
+  "shakeFrequency": 27.0,
+  "scorePopSeconds": 0.75,
+  "scorePopRise": 15.0,
+  "landingPulseSeconds": 0.45,
+  "landingPulseSpread": 4.0,
+  "sweepSeconds": 0.45
+}

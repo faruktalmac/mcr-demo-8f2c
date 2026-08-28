@@ -1,0 +1,33 @@
+{
+  "_comment": "Real-world play surfaces. friction = constant deceleration coefficient, drag = speed-proportional damping, curlGrip = how much spin bends the path, spinDecay = fraction of spin lost per second. Tuned 2026-08-27 against the trajectory report: curl must bend a shot by roughly a quarter of the table width at full spin, and spin must die with the car so a turn does not stall.",
+  "surfaces": [
+    {
+      "id": "kitchen_table",
+      "friction": 0.22,
+      "drag": 0.35,
+      "curlGrip": 0.050,
+      "spinDecay": 2.20
+    },
+    {
+      "id": "parquet",
+      "friction": 0.18,
+      "drag": 0.30,
+      "curlGrip": 0.042,
+      "spinDecay": 2.00
+    },
+    {
+      "id": "garage_floor",
+      "friction": 0.35,
+      "drag": 0.50,
+      "curlGrip": 0.075,
+      "spinDecay": 2.80
+    },
+    {
+      "id": "carpet",
+      "friction": 0.55,
+      "drag": 0.90,
+      "curlGrip": 0.110,
+      "spinDecay": 3.60
+    }
+  ]
+}

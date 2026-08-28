@@ -1,0 +1,11 @@
+{
+  "_comment": "Simulation-wide physics constants. Distances in metres, time in seconds, angles in radians. The playfield is roughly a 1.2m x 2.5m table. maxLaunchSpeed is set so a full-power shot slightly overshoots the far edge: full power must stay a real risk rather than a safe default.",
+  "timeStep": 0.008333333333333333,
+  "gravity": 9.81,
+  "restSpeed": 0.04,
+  "restSpin": 0.15,
+  "restStepsRequired": 12,
+  "maxShotSeconds": 12.0,
+  "maxLaunchSpeed": 3.8,
+  "maxLaunchSpin": 12.0
+}

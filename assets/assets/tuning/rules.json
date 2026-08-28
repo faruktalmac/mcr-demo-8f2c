@@ -1,0 +1,12 @@
+{
+  "_comment": "Rules of the run (ADR-012, ADR-014, ADR-015). A shot that ends outside every ring, or off the table, is a miss; the car is cleared. A car that scores keeps the points it landed on and stays as an obstacle. shotsPerTarget is the dial between the two ways this gets boring: at 1 the rings move every shot and the player never gets to use what the last one taught them; at a very high number the rings never move and the whole game is one memorised pull. Three lets a read be learned, applied, and then taken away. targetScaleAtHardest is bounded from below by the size of a car: shrink the rings past a couple of car widths and the hardest shots stop being aimable at all - a test asserts it.",
+  "missesAllowed": 3,
+  "shotsPerTarget": 3,
+  "spawnSpacing": 0.19,
+  "targetNearestY": 1.15,
+  "targetFurthestY": 2.1,
+  "targetEdgeMargin": 0.06,
+  "targetScaleAtStart": 1.15,
+  "targetScaleAtHardest": 0.78,
+  "shotsToHardest": 12
+}

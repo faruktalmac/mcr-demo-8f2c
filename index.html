@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <!--
+    Replaced by the value of the `--base-href` argument to `flutter build`.
+    It has to start and end with a slash, and must match the sub-path the game
+    is served from, or every asset request 404s.
+  -->
+  <base href="/mcr-demo-8f2c/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Mutfak masasında oyuncak arabalarla curling.">
+
+  <!--
+    Without this, iOS Safari lays the page out at desktop width and scales it
+    down, and the game arrives unreadably small. `viewport-fit=cover` lets the
+    table run under the notch; the Flutter side keeps the score panel clear of
+    it with a SafeArea.
+  -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+  <!-- Shared by link only, so keep it out of search results. -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Micro Curling Racers">
+  <meta name="theme-color" content="#2A1E16">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>Micro Curling Racers</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    /*
+      The whole game is one gesture: press, drag back, release. On iOS Safari a
+      downward drag is also "scroll the page" and "pull to refresh", and the
+      browser wins that fight — the shot would either not register or the page
+      would bounce under the player's thumb. Pinning the page and turning off
+      touch scrolling is what makes the control work on a phone at all.
+    */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: fixed;
+      background: #2A1E16;
+      overscroll-behavior: none;
+      touch-action: none;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
+    }
+
+    /*
+      The first visit downloads a few megabytes. On mobile data that is several
+      seconds of blank screen, which reads as "this is broken" rather than
+      "this is loading" — and a tester who has already decided it is broken
+      gives you no useful opinion.
+    */
+    #loading {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #C9945A;
+      background: #2A1E16;
+      transition: opacity 0.35s ease;
+    }
+
+    #loading.done {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #loading .title {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    #loading .note {
+      font-size: 13px;
+      color: #8A6A4C;
+    }
+
+    #loading .spinner {
+      width: 34px;
+      height: 34px;
+      border: 3px solid #4A3524;
+      border-top-color: #C9945A;
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading">
+    <div class="spinner"></div>
+    <div class="title">Micro Curling Racers</div>
+    <div class="note">Yükleniyor — ilk açılış birkaç saniye sürer</div>
+  </div>
+
+  <script>
+    // Flutter fires this once it has painted, which is the real moment the
+    // game is ready — a timer would either uncover a blank canvas or leave the
+    // loader up after the game had started.
+    window.addEventListener('flutter-first-frame', function () {
+      var loading = document.getElementById('loading');
+      if (!loading) return;
+      loading.classList.add('done');
+      setTimeout(function () { loading.remove(); }, 400);
+    });
+  </script>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

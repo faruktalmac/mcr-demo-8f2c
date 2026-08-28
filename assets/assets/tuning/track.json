@@ -1,0 +1,36 @@
+{
+  "_comment": "Playfield geometry and scoring rings, in metres. Ring radii are gameplay values and live here rather than in code (rule K3). Every edge of the table is open: a car that leaves it on any side is lost (ADR-013). The sides used to bounce, which let a full-power bank shot score every time and made judging the distance optional. NOTE: the 500-point centre is deliberately tiny. edgeBonus is the reward for stopping a car on the last few centimetres of table without going over (ADR-019). Measured over 75072 simulated shots: in realistic play it lands 5.4% of the time against 17.0% for the rings, so it is a gamble and never the default line. fromY is what stops it being farmed: with the strip running the whole side, someone hunting it at any angle and any power hits 3.5%, but limited to the far half they hit 1.0% - worse than simply playing properly. Set points to 0 to turn the whole thing off.",
+  "width": 1.2,
+  "length": 2.5,
+  "targetCentre": {
+    "x": 0.0,
+    "y": 2.0
+  },
+  "startPosition": {
+    "x": 0.0,
+    "y": 0.25
+  },
+  "rings": [
+    {
+      "points": 50,
+      "radius": 0.3
+    },
+    {
+      "points": 150,
+      "radius": 0.2
+    },
+    {
+      "points": 300,
+      "radius": 0.11
+    },
+    {
+      "points": 500,
+      "radius": 0.045
+    }
+  ],
+  "edgeBonus": {
+    "points": 300,
+    "width": 0.07,
+    "fromY": 1.25
+  }
+}

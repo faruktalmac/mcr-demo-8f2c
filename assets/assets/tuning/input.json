@@ -1,0 +1,6 @@
+{
+  "_comment": "How a finger drag becomes a shot. All distances are in track metres, not pixels, so the game plays identically on a phone and a tablet. The drag carries exactly two things - angle and power (ADR-011). It used to carry spin as well, measured from the bow of the finger's path; that was removed because a 20 degree aim correction and a full-spin bow are the same 40 pixels of thumb travel, so aiming silently loaded maximum spin.",
+  "maxPullDistance": 0.45,
+  "minPullDistance": 0.05,
+  "aimPreviewFraction": 0.28
+}
